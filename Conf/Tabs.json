@@ -1,0 +1,30 @@
+[
+    {
+        "name":"Automovel",
+        "link":"./Pages/Automovel.php"
+    },
+    {
+        "name":"Modelo",
+        "link":"./Pages/Modelo.php"
+    },
+     {
+        "name":"Marca",
+        "link":"./Pages/Marca.php"
+    },
+    {
+        "name":"Cliente",
+        "link":"./Pages/Cliente.php"
+    },
+    {
+        "name":"Locacao",
+        "link":"./Pages/Locacao.php"
+    },
+    {
+        "name":"Protocolos",
+        "link":"./Pages/Protocolo.php"
+    },
+    {
+        "name":"Diagramas do Sistema",
+        "link":"./Pages/DiagramaSite.php"
+    }
+]
