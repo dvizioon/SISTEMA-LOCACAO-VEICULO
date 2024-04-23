@@ -1,0 +1,74 @@
+CREATE DATABASE slveiculos;
+USE slveiculos;
+
+CREATE TABLE automovel(
+	id INT AUTO_INCREMENT NOT NULL,
+    placa VARCHAR(255) NOT NULL,
+    img VARCHAR(255) NOT NULL,
+    nome VARCHAR(255) NOT NULL,
+    cor VARCHAR(255) NOT NULL,
+    quilometragem INT NOT NULL,
+    ano VARCHAR(50) NOT NULL,
+    quantidade_portas INT NOT NULL,
+    tipoCombustivel ENUM("alcool","comun","disel","gas"),
+    RENAVAM VARCHAR(255) NOT NULL,
+    chassi VARCHAR(255) NOT NULL, 
+	locacao DECIMAL(10,2) NOT NULL,
+    condicao enum ("Habilitado","Desabilitado") default("Habilitado") not null,
+    protocolo_aluguel varchar(255),
+    modelo_id INT,
+    marca_id INT,
+    CONSTRAINT PRIMARY KEY(id)
+);
+
+CREATE TABLE modelo(
+	id INT AUTO_INCREMENT NOT NULL,
+    nome VARCHAR(255) NOT NULL,
+    marca_id INT NOT NULL,
+    descricao VARCHAR(255) NOT NULL,
+    CONSTRAINT PRIMARY KEY(id)
+);
+
+CREATE TABLE protocolo(
+	id INT AUTO_INCREMENT NOT NULL,
+    id_carro VARCHAR(255) NOT NULL,
+    id_cliente INT NOT NULL,
+    locacao_id INT NOT NULL,
+    protocolo_aluguel VARCHAR(255) NOT NULL,
+    resolvido enum("sim","nao") default("nao") NOT NULL,
+    CONSTRAINT PRIMARY KEY(id)
+);
+
+CREATE TABLE marca(
+	id INT AUTO_INCREMENT NOT NULL,
+    nome VARCHAR(255) NOT NULL,
+    CONSTRAINT PRIMARY KEY(id)
+);
+
+CREATE TABLE cliente(
+	id INT AUTO_INCREMENT NOT NULL,
+    nome VARCHAR(255) NOT NULL,
+    cpf VARCHAR(255) NOT NULL,
+    rg VARCHAR(255) NOT NULL,
+    numero int NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    pai VARCHAR(255) NOT NULL,
+    mae VARCHAR(255) NOT NULL,
+    antecedents VARCHAR(255),
+    CONSTRAINT PRIMARY KEY(id)
+);
+
+CREATE TABLE locacao(
+	id INT AUTO_INCREMENT NOT NULL,
+    cliente_id INT NOT NULL,
+    automovel_id INT NOT NULL,
+	protocolo_aluguel varchar(255) not null,
+    data_hora_locacao DATETIME NOT NULL,
+    data_hora_devolucao DATETIME,
+    protocol_resolvido enum("sim","nao") default("nao") NOT NULL,
+    CONSTRAINT PRIMARY KEY(id)
+);
+
+
+
+
